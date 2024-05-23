@@ -12,15 +12,15 @@
         Output: fix_targetfile_2024-05-23-09_01_07.ctl
 3) Run: hybpiper fix_targetfile --targetfile_dna final_set_of_exons_formated.fasta fix_targetfile_2024-05-23-09_01_07.ctl (*.ctl file is output of prior step)  
         Results: Nothing to fix
-        Output: fix_targetfile_2024-05-23-09_11_04.log
+   Output: fix_targetfile_2024-05-23-09_11_04.log
 4) Run: hybpiper assemble -t_dna final_set_of_exons_formatted.fasta -r SRR11028140.fastq --prefix D4-Full --bwa  
-        Results:  
-            Runtime summary info:  
-   [INFO]:    Everything looks good!  
+        Results:
+             Runtime summary info:  
+                      [INFO]:    Everything looks good!  
                       [INFO]:    Checking target file FASTA header formatting...  
                       [INFO]:    The target file FASTA header formatting looks good!  
                       [INFO]:    The target file contains at least one sequence for 4956 unique genes.  
-                    [WARNING]: There are 3931 sequences in your target file that contain unexpected stop  
+                      [WARNING]: There are 3931 sequences in your target file that contain unexpected stop  
                                codons when translated in the first forwards frame. If your target file  
                                contains only protein-coding sequences, please check these sequences, and/or  
                                run "hybpiper fix_targetfile". Sequence names can be found in the sample log  
