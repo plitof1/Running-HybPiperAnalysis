@@ -1,7 +1,7 @@
 # Running-Hybpiper
 
 ## These are the steps being followed to generate the paralogs
-### Environment: 2017 Intel 2.8Ghz Icore 7 based Apple Macbook Pro, 16GB, 256GB storage
+### Environment: 2017 Intel 2.8Ghz Icore 7 based Apple Macbook Pro, 16GB, 256GB storage, MacOS Ventura 13.6.7
 ### Dependencies
 1) final_set_of_exons_formatted.fasta: provide by Tatiana, formatted by Peter
 2) SRR11028140.fastq: downloaded from NCBI
