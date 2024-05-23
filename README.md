@@ -32,4 +32,16 @@
                                the sample log file (if running "hybpiper assemble") or printed below (if  
                                running "hybpiper check_targetfile").  
                     [NOTE]:    80 genes had no good matches.  
-                    [NOTE]:    Running initial SPAdes assemblies for 4876 genes with reads...  
+                    [NOTE]:    Running initial SPAdes assemblies for 4876 genes with reads...
+            End of run notes:
+                   [INFO]: Generated sequences from 1828 genes!  
+                           [WARNING]: 1454 genes contain internal stop codons. See file  
+                           "D4-Full_genes_with_non_terminal_stop_codons.txt" for a list of gene names, and  
+                           visit the wiki at the following link to view troubleshooting recommendations.  
+                           https://github.com/mossmatters/HybPiper/wiki/Troubleshooting,-common-  
+                           issues,-and-recommendations#31-sequences-containing-stop-codons  
+                   [WARNING]: Potential long paralogs detected for 659 genes!  
+                   [WARNING]: Potential paralogs detected via contig depth for 668 genes!  
+           Command runtime: 55 minutes  
+           Output: D4-Full_hybpiper_assemble_2024-05-23-09_15_14.log
+   
