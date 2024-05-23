@@ -15,8 +15,8 @@
         Output: fix_targetfile_2024-05-23-09_11_04.log
 4) Run: hybpiper assemble -t_dna final_set_of_exons_formatted.fasta -r SRR11028140.fastq --prefix D4-Full --bwa
         Results:
-           Runtime summary info:
-                      [INFO]:    Everything looks good!
+            Runtime summary info:
+   [INFO]:    Everything looks good!
                       [INFO]:    Checking target file FASTA header formatting...
                       [INFO]:    The target file FASTA header formatting looks good!
                       [INFO]:    The target file contains at least one sequence for 4956 unique genes.
