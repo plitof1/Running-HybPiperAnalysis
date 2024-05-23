@@ -1,6 +1,6 @@
 # Running-Hybpiper
 
-## These are the step being followed to generate the paralogs
+## These are the step sbeing followed to generate the paralogs
 ### Dependencies
 1) final_set_of_exons_formatted.fasta: provide by Tatiana, formatted by Peter
 2) SRR11028140.fastq: downloaded from NCBI
