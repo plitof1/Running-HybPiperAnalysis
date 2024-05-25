@@ -44,4 +44,12 @@
                    [WARNING]: Potential paralogs detected via contig depth for 668 genes!  
            Command runtime: 55 minutes  
            Output: D4-Full_hybpiper_assemble_2024-05-23-09_15_14.log
+5) Run: hybpiper stats -t_dna final_set_of_exons_formatted.fasta gene filelist.txt  
+        Results: It was looking for .bam or .blastx files for each gene, which we don't have  
+        Output: hybpiper_stats.tsv - contained just column headers  
+                seq_lengths.tsv - results were 0 for all genes     
+7) Run: hybpiper retrieve_sequences dna -t_dna final_set_of_exons_formatted.fasta  --samle_names filelist.txt
+        Results: No sequences found
+
+   find . -type f -name "*paralogs.fasta"
    
