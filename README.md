@@ -15,6 +15,7 @@ The HybPiperAnalysis perl script consolidates all of the steps into a single app
 ### Command line options
 Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename} --analysisdir {path} --datadir {path} --dnaoraa {dna/aa} --cpus {#} --execute {yes/no} --confirm {yes/no}  
 
+</pre>
 Required options  
   --targetfile : the name of the .fasta file to be analyzed   
   --readfile   : the name of the .fastq file to compare to the targetfile    
@@ -38,6 +39,7 @@ Optional options
   --confirm: 'yes' or 'no'. Default is 'yes'.  Will pause processing after the Command Line Arguments screen is displayed.  
              Let's the User decide if they want to proceed or not.  If you are going to create a bash script to run HybPiperAnalysis  
              for a number of different readfiles it will be a good idea to set this value to 'no'.  
+</pre>
 
 Example: perl ../apps/hybpiperanalysis.pl --targetfile orchidaceae963.fasta --readfile SRR11028166 --analysisdir Czech-Hybseq/Dracula_lotax  
 
