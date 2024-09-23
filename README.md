@@ -13,8 +13,8 @@ The HybPiperAnalysis perl script consolidates all of the steps into a single app
 
 
 ### Command line options
-Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename} --analysisdir {path} --datadir {path}  
-                                    --dnaoraa {dna/aa} --cpus {#} --execute {yes/no} --confirm {yes/no}  
+Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename} --analysisdir {path} --datadir {path} --dnaoraa {dna/aa} --cpus {#} --execute {yes/no} --confirm {yes/no}  
+
 Required options  
   --targetfile : the name of the .fasta file to be analyzed   
   --readfile   : the name of the .fastq file to compare to the targetfile  
@@ -24,6 +24,7 @@ Required options
                  The 'Home Directory' is set in the app and depends on OS.  
                  It will be something like /{directory}/{subdir}/Botany/Analysis  
                  Therefore the fully qualified species dir will be: /{directory}/{subdir}/Botany/Analysis/Czech-Hybseq/Dracula_lotax  
+
 Optional options  
   --datadir: Default {analysisdir}/data  
              this is where the data being used for each speices analysis will exist.  
