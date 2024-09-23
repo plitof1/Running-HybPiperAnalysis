@@ -1,55 +1,42 @@
-# Running-Hybpiper
+The HybPiperAnalysis perl script consolidates all of the steps into a single application. The script will run each of the following step to collect the necessary data, if needed, and run each of the HybPiper tasks:
 
-## These are the steps being followed to generate the paralogs
-### Environment: 2017 Intel 2.8Ghz Icore 7 based Apple Macbook Pro, 16GB, 256GB storage, MacOS Ventura 13.6.7
-### Dependencies
-1) final_set_of_exons_formatted.fasta: contains 4,956 genes
-2) SRR11028140.fastq: downloaded from NCBI
-3) filelist.txt: Just a list of the genes in final_set_of_exons_formatted.fasta
-### Steps
-1) Run: hybpiper check_targetfile --targetfile_dna final_set_of_exons_formatted.fasta  
-        Results: Contains only 1 gene with low_complexity: Assembly-020249.24  
-        Output: fix_targetfile_2024-05-23-09_01_07.ctl
-3) Run: hybpiper fix_targetfile --targetfile_dna final_set_of_exons_formated.fasta fix_targetfile_2024-05-23-09_01_07.ctl (*.ctl file is output of prior step)  
-        Results: Nothing to fix
-   Output: fix_targetfile_2024-05-23-09_11_04.log
-4) Run: hybpiper assemble -t_dna final_set_of_exons_formatted.fasta -r SRR11028140.fastq --prefix D4-Full --bwa  
-        Results:
-             Runtime summary info:  
-                      [INFO]:    Everything looks good!  
-                      [INFO]:    Checking target file FASTA header formatting...  
-                      [INFO]:    The target file FASTA header formatting looks good!  
-                      [INFO]:    The target file contains at least one sequence for 4956 unique genes.  
-                      [WARNING]: There are 3931 sequences in your target file that contain unexpected stop  
-                               codons when translated in the first forwards frame. If your target file  
-                               contains only protein-coding sequences, please check these sequences, and/or  
-                               run "hybpiper fix_targetfile". Sequence names can be found in the sample log  
-                               file (if running "hybpiper assemble") or printed below (if running "hybpiper  
-                               check_targetfile").  
-                   [WARNING]: There are 3277 sequences in your target file that are not multiples of three.  
-                               If your target file contains only protein-coding sequences, please check these  
-                               sequences, and/or run "hybpiper fix_targetfile". Sequence names can be found in  
-                               the sample log file (if running "hybpiper assemble") or printed below (if  
-                               running "hybpiper check_targetfile").  
-                    [NOTE]:    80 genes had no good matches.  
-                    [NOTE]:    Running initial SPAdes assemblies for 4876 genes with reads...
-            End of run notes:
-                   [INFO]: Generated sequences from 1828 genes!  
-                           [WARNING]: 1454 genes contain internal stop codons. See file  
-                           "D4-Full_genes_with_non_terminal_stop_codons.txt" for a list of gene names, and  
-                           visit the wiki at the following link to view troubleshooting recommendations.  
-                           https://github.com/mossmatters/HybPiper/wiki/Troubleshooting,-common-  
-                           issues,-and-recommendations#31-sequences-containing-stop-codons  
-                   [WARNING]: Potential long paralogs detected for 659 genes!  
-                   [WARNING]: Potential paralogs detected via contig depth for 668 genes!  
-           Command runtime: 55 minutes  
-           Output: D4-Full_hybpiper_assemble_2024-05-23-09_15_14.log
-5) Run: hybpiper stats -t_dna final_set_of_exons_formatted.fasta gene filelist.txt  
-        Results: It was looking for .bam or .blastx files for each gene, which we don't have  
-        Output: hybpiper_stats.tsv - contained just column headers  
-                seq_lengths.tsv - results were 0 for all genes     
-7) Run: hybpiper retrieve_sequences dna -t_dna final_set_of_exons_formatted.fasta  --samle_names filelist.txt
-        Results: No sequences found
+1) Create a standardized subdirectory structure for the DNA species analysis
+2) Download, if necessary, a DNA FASTQ Read file
+3) If necessary, "trim" the FASTQ file using Trimomatic
+4) UnZip the output from the Trimomatic processing
+5) Create a "NameList", which will be used in subsequent steps, based on the FASTQ read file name(s)
+6) Run HybPiper Assemble
+7) Run HybPiper Stats
+8) Run HybPiper Retrieve_Sequences
+9) Run HybPiper Paralog_Retriever
+10) Cleanup/delete HybPiper results files that do not contain any data
 
-   find . -type f -name "*paralogs.fasta"
-   
+
+### Command line options
+Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename} --analysisdir {path} --datadir {path}  
+                                    --dnaoraa {dna/aa} --cpus {#} --execute {yes/no} --confirm {yes/no}  
+Required options  
+  --targetfile : the name of the .fasta file to be analyzed   
+  --readfile   : the name of the .fastq file to compare to the targetfile  
+                 this will be downloaded from the NCBI (Nation Library of Medicine's National Center for Biotechnology Information)
+  --analysisdir: the path to the species directory you want the analysis to be performed in  
+                 For example: Czech-Hybseq/Dracula_lotax.  It will be appended to your 'Home Directory'.  
+                 The 'Home Directory' is set in the app and depends on OS.  
+                 It will be something like /{directory}/{subdir}/Botany/Analysis  
+                 Therefore the fully qualified species dir will be: /{directory}/{subdir}/Botany/Analysis/Czech-Hybseq/Dracula_lotax  
+Optional options  
+  --datadir: Default {analysisdir}/data  
+             this is where the data being used for each speices analysis will exist.  
+             the 'targetfile', the 'readfile(s)' and the 'namelist.txt'
+             the readfile, as mentioned above will be downloaded from the NCBI repostiory
+             the 'namelist.txt' file will be generated in the HybPiperAnalysis script
+  --dnaoraa: 'dna' or 'aa' (amino acids). Default is 'dna'. Is based on the kind of analysis you want to perform.  
+  --cpus   : Default is 1 less than the computers total.  This could be 'processors', 'cores' or 'hyperthreads' depending on the computer  
+             This is the number of cpus you want to give to HybPiperAnalysis assemble to use for the assemble process.  
+  --execute: 'yes' or 'no'. Default is 'yes'. If 'no' will display the steps it will take but will not execute the functions  
+  --confirm: 'yes' or 'no'. Default is 'yes'.  Will pause processing after the Command Line Arguments screen is displayed.  
+             Let's the User decide if they want to proceed or not.  If you are going to create a bash script to run HybPiperAnalysis  
+             for a number of different readfiles it will be a good idea to set this value to 'no'.
+
+Example: perl ../apps/hybpiperanalysis.pl --targetfile orchidaceae963.fasta --readfile SRR11028166 --analysisdir Czech-Hybseq/Dracula_lotax  
+
