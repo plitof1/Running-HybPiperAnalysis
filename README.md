@@ -15,13 +15,11 @@ The HybPiperAnalysis perl script consolidates all of the steps into a single app
 ### Command line options
 Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename} --analysisdir {path} --datadir {path} --dnaoraa {dna/aa} --cpus {#} --execute {yes/no} --confirm {yes/no}  
 
-</pre>
 Required options  
-```
-  --targetfile : the name of the .fasta file to be analyzed   
-  --readfile   : the name of the .fastq file to compare to the targetfile    
-                 this will be downloaded from the NCBI (Nation Library of Medicine's National Center for 
-```
+  - targetfile : the name of the .fasta file to be analyzed   
+  - readfile   : the name of the .fastq file to compare to the targetfile    
+                - this will be downloaded from the NCBI (Nation Library of Medicine's National Center for 
+
 Biotechnology Information)  
   --analysisdir: the path to the species directory you want the analysis to be performed in  
                  For example: Czech-Hybseq/Dracula_lotax.  It will be appended to your 'Home Directory'.  
