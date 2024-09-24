@@ -18,7 +18,7 @@ Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename
 Required options  
   - targetfile : the name of the .fasta file to be analyzed   
   - readfile   : the name of the .fastq file to compare to the targetfile    
-        - this will be downloaded from the NCBI (Nation Library of Medicine's National Center for 
+        -        this will be downloaded from the NCBI (Nation Library of Medicine's National Center for 
 
 Biotechnology Information)  
   --analysisdir: the path to the species directory you want the analysis to be performed in  
