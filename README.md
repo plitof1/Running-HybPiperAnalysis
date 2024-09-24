@@ -17,9 +17,12 @@ Format: perl {app path}/hybpiper.pl --targetfile {filename} --readfile {filename
 
 </pre>
 Required options  
-```  --targetfile : the name of the .fasta file to be analyzed   
-```  --readfile   : the name of the .fastq file to compare to the targetfile    
-```                 this will be downloaded from the NCBI (Nation Library of Medicine's National Center for Biotechnology Information)  
+<div style="margin-left: 20px;">
+  --targetfile : the name of the .fasta file to be analyzed   
+  --readfile   : the name of the .fastq file to compare to the targetfile    
+                 this will be downloaded from the NCBI (Nation Library of Medicine's National Center for 
+</div>
+Biotechnology Information)  
   --analysisdir: the path to the species directory you want the analysis to be performed in  
                  For example: Czech-Hybseq/Dracula_lotax.  It will be appended to your 'Home Directory'.  
                  The 'Home Directory' is set in the app and depends on OS.  
