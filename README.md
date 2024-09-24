@@ -32,8 +32,7 @@ Optional options
        - the readfile, as mentioned above will be downloaded from the NCBI repostiory  
        - the 'namelist.txt' file will be generated in the HybPiperAnalysis script  
   - --dnaoraa: 'dna' or 'aa' (amino acids). Default is 'dna'. Is based on the kind of analysis you want to perform.  
-  - --cpus   : Default is 1 less than the computers total.  This could be 'processors', 'cores' or 'hyperthreads' depending on the computer  
-             This is the number of cpus you want to give to HybPiperAnalysis assemble to use for the assemble process.  
+  - --cpus   : Default is 1 less than the computers total.  This could be 'processors', 'cores' or 'hyperthreads' depending on the computer. This is the number of cpus you want to give to HybPiperAnalysis assemble to use for the assemble process.  
   - --execute: 'yes' or 'no'. Default is 'yes'. If 'no' will display the steps it will take but will not execute the functions  
   - --confirm: 'yes' or 'no'. Default is 'yes'.  Will pause processing after the Command Line Arguments screen is displayed.  
        - Let's the User decide if they want to proceed or not.
