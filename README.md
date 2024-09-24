@@ -23,7 +23,7 @@ Required options
        - For example: Czech-Hybseq/Dracula_lotax.  It will be appended to your 'Home Directory'.  
        - The 'Home Directory' is set in the app and depends on OS.  
        - It will be something like /{directory}/{subdir}/Botany/Analysis  
-       - Therefore the fully qualified species dir will be: /{directory}/{subdir}/Botany/Analysis/Czech-Hybseq/Dracula_lotax  For example: /users/_loginname_//Botany/Analysis/Czech-Hybseq/Dracula_lotax
+       - Therefore the fully qualified species dir will be: /{directory}/{subdir}/Botany/Analysis/Czech-Hybseq/Dracula_lotax  For example: /users/_loginname_/Botany/Analysis/Czech-Hybseq/Dracula_lotax
 
 Optional options  
   - --datadir: Default {analysisdir}/data  
